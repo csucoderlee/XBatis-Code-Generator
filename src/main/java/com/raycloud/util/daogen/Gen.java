@@ -40,63 +40,15 @@ public class Gen {
      * 对于dao的生成，暂时特殊定制，硬编码。key 为数据库表名，暂不全量配置
      */
     static {
-        tconfig.put("shop", TableConfig.build("shop"));
+        tconfig.put("user", TableConfig.build("user"));
         /**新增分表模式、符合主键、自定义add_time、upd_time、去除数据库前缀**/
-        tconfig.put("tb_trade", TableConfig.build("tb_trade").setCustomField(false));
+//        tconfig.put("tb_trade", TableConfig.build("tb_trade").setCustomField(false));
         //.setSplitTable(true).addQueryMethodAndCol("getTradeListByShopId", new String[] { "shop_id","buyer_nick" })
         //.addQueryMethodAndCol("getTradeByShopId", new String[] { "shop_id" }));;
-        tconfig.put("tb_order", TableConfig.build("tb_order"));
-        tconfig.put("tb_trade_rate", TableConfig.build("tb_trade_rate"));
-
-        tconfig.put("tb_trade_refund", TableConfig.build("tb_trade_refund"));
-//        tconfig.put("erp_user", TableConfig.build("erp_user").setTablePrefix("erp_").addQueryMethodAndCol("getUserByVisitorId", new String[] { "visitor_id" })
-//                                                             .addQueryMethodAndCol("getUserByUserId", new String[]{"user_id"})
-//                                                             .addQueryMethodAndCol("getUserByNickName", new String[]{"name"})
-//                                                             .setPrimaryKey("visitor_id"));
-//        tconfig.put("erp_shop", TableConfig.build("erp_shop").setTablePrefix("erp_").addQueryMethodAndCol("getUserByVisitorId", new String[] { "visitor_id" })
-//                                                             .addQueryMethodAndCol("getUserByUserId", new String[]{"user_id"})
-//                                                             .addQueryMethodAndCol("getUserByNickName", new String[]{"nick_name"})
-//                                                             .setPrimaryKey("visitor_id"));
-//        tconfig.put("erp_trade",
-//                TableConfig.build("erp_trade").setSplitTable(true).setTablePrefix("erp_").setName("erp_trade").addQueryMethodAndCol("getTrade", new String[]{"shop_id", "trade_id"})
-//                                                                   .addQueryMethodAndCol("getTradeList", new String[]{"shop_id", "trade_create"}));
+//        tconfig.put("tb_order", TableConfig.build("tb_order"));
+//        tconfig.put("tb_trade_rate", TableConfig.build("tb_trade_rate"));
 //
-//
-//        tconfig.put("erp_performance", TableConfig.build("erp_performance").setSplitTable(true).setTablePrefix("erp_"));
-//
-//
-//        tconfig.put("erp_performance_index", TableConfig.build("erp_performance_index").setTablePrefix("erp_").addQueryMethodAndCol("getByShopId", new String[] { "shop_id" }));
-        // tconfig.put("cuisine", TableConfig.build("cuisine")
-        // .setDelByKey(true).setDelByKeys(true).setNeedPage(true).setUpdateObj(true)
-        // .addQueryMethodAndCol("getCuisineByName", new String[]{"name"})
-        // );
-        // tconfig.put("dish", TableConfig.build("dish")
-        // .setDelByKey(true).setDelByKeys(true).setNeedPage(true).setUpdateObj(true)
-        // .addQueryMethodAndCol("getDishByName", new String[]{"name"})
-        // );
-        // tconfig.put("food", TableConfig.build("food")
-        // .setDelByKey(true).setDelByKeys(true).setNeedPage(true).setUpdateObj(true)
-        // );
-        // tconfig.put("food_cuisine", TableConfig.build("food_cuisine")
-        // .setDelByKey(true).setDelByKeys(true).setNeedPage(true).setUpdateObj(true)
-        // );
-        // tconfig.put("food_dish", TableConfig.build("food_dish")
-        // .setDelByKey(true).setDelByKeys(true).setNeedPage(true).setUpdateObj(true)
-        // );
-        // tconfig.put("restaurant", TableConfig.build("restaurant")
-        // .setDelByKey(true).setDelByKeys(true).setNeedPage(true).setUpdateObj(true)
-        // );
-        // tconfig.put("passport", TableConfig.build("passport")
-        // .setDelByKey(true).setDelByKeys(true).setNeedPage(true).setUpdateObj(true)
-        // .addQueryMethodAndCol("getUserPassportByEmail", new
-        // String[]{"email"})
-        // .addQueryMethodAndCol("getUserPassportByMobile", new
-        // String[]{"mobile"})
-        // .addQueryMethodAndCol("getUserPassportByLoginname", new
-        // String[]{"loginname"})
-        // .addQueryMethodAndCol("getUserPassportByNickname", new
-        // String[]{"nickname"})
-        // );
+//        tconfig.put("tb_trade_refund", TableConfig.build("tb_trade_refund"));
     }
 
     /**
@@ -126,7 +78,7 @@ public class Gen {
         Gen gen = new Gen(dbConn);
         // 设置工程的全局变量
         gen.globalBean.setNowDate(DateFormatUtils.format(new Date(), "yyyy-MM-dd"));// 设置系统生成时间
-        gen.globalBean.setUserName("Ou zhouyou (ouzhouyou@gmail.com)");// 设置系统当前用户
+        gen.globalBean.setUserName("lixiang");// 设置系统当前用户
         gen.globalBean.setPackageName(settings.getJavaPackage());// 设置Java_Package路径
         // 生成指定数据库的指定表或所有表数据访问层代码
         String tabName;
